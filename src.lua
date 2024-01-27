@@ -1,5 +1,8 @@
 
-
+--[[
+    Made by thatsmymute feel free to use just give credits
+    esp and aimbot exunys
+]]
 local Players = game:GetService("Players")
 local admins_ids = {
     1488594903,
@@ -26,13 +29,13 @@ function numberToLetter(number)
   end
 end
 
--- Assign letters from "A" to "TY" to Chest objects
+---Assign letters from "A" to "TY" to Chest objects
 for i = 1, 201 do
   local letter = numberToLetter(i)
   game:GetService("Workspace").Chests.Chest.Name = letter
 end
 
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Consistt/Ui/main/UnLeaked"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThatsMyMute/fortblox/main/xsx-ui-edit"))()
 library.rank = "Dev"
 local Wm = library:Watermark("FortBlox-Fucker | v" .. library.version ..  " | " .. library:GetUsername() .. " | rank: " .. library.rank)
 local FpsWm = Wm:AddWatermark("fps: " .. library.fps)
@@ -59,9 +62,15 @@ local Tab1 = Init:NewTab("ESP")
 
 local Tab2 = Init:NewTab("Misc")
 
-local Tab3 = Init:NewTab("Aimbot")
+local Tab3 = Init:NewTab("Hitbox>aimbot")
 
-local Label1 = Tab1:NewLabel("Example label", "left")--"left", "center", "right"
+local Tab4 = Init:NewTab("Player Stuff")
+
+local discord = Tab2:NewButton("Discord invite", function()
+    library:Copy("https://discord.gg/AK8YFMQ5ww")
+    local copied = Notif:Notify("Copied to clipboard!", 5, "put it in discord or whatever")
+    end)
+
 
 local Toggle1 = Tab1:NewToggle("Chest ESP", false, function(obj1)
     local vers = value and "on" or "off"
@@ -116,105 +125,70 @@ end
 end
 end)
 
-local Fly = Tab1:NewToggle("FLY", false, function(value)
- -- put our fly script here
-end)
+local hitbox = Tab3:NewButton("Hitbox", function()
+    
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local LocalPlayer = Players.LocalPlayer
+local Character = LocalPlayer.Character
+
+local HeadSize = 35
+local Disabled = true
 
 
-local Button1 = Tab2:NewButton("Adonis-Anti-Cheat bypass needs to go in auto-exec", function()
-setclipboard([[]])
-end)
-
-
-local Button2 = Tab2:NewButton("Discord Link", function()
-  setclipboard("https://discord.gg/AK8YFMQ5ww")
-end)
-
---[[
-local Selector1 = Tab1:NewSelector("Selector 1", "bungie", {"fg", "fge", "fg", "fg"}, function(d)
-    print(d)
-end)
-
-local Slider1 = Tab1:NewSlider("Slider 1", "", true, "/", {min = 1, max = 100, default = 20}, function(value)
-    print(value)
-end)
-
-
-]]
-
-
-
-local Aimbot = Tab3:NewToggle("Aimbot", true, function(a)
-    if a == true then do
-    local ExunysDeveloperAimbot = loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V3/main/src/Aimbot.lua"))()
-ExunysDeveloperAimbot.Load()
+local function updateCharacters()
+    if Disabled then
+        for _, player in ipairs(Players:GetPlayers()) do
+            if player ~= LocalPlayer then
+                local character = player.Character
+                if character then
+                    local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+                    if humanoidRootPart then
+                        humanoidRootPart.Size = Vector3.new(HeadSize, HeadSize, HeadSize)
+                        humanoidRootPart.Transparency = 0.7
+                        humanoidRootPart.BrickColor = BrickColor.new("Really blue")
+                        humanoidRootPart.Material = Enum.Material.Neon
+                        humanoidRootPart.CanCollide = false
+                    end
+                end
+            end
+        end
+    end
 end
-end
-if a == false then do
-    ExunysDeveloperAimbot.Exit()
-end
-end
+
+
+RunService.Stepped:Connect(function()
+    updateCharacters()
 end)
 
-local fov = Tab3:NewToggle("Use Fov for aimbot plus show fov", true, function(fov)
-    ExunysDeveloperAimbot.FOVSettings.Enabled = fov
-    ExunysDeveloperAimbot.FOVSettings.Visible = fov
+-- Adjust update interval according to your needs
+wait(3)  
+
+while getgenv().Condition do
+    -- You can adjust this wait duration according to your needs
+    wait(1)  -- Adjust the interval between updates
+end
+
 end)
 
-
-local fov = Tab3:NewToggle("Wall Check", false, function(Wall)
-    ExunysDeveloperAimbot.Settings.WallCheck = Wall
-end)
-
-
-
-getgenv().ExunysDeveloperAimbot = {
-	DeveloperSettings = {
-		UpdateMode = "RenderStepped",
-		TeamCheckOption = "TeamColor",
-		RainbowSpeed = 1 -- Bigger = Slower
-	},
-
-	Settings = {
-		Enabled = true,
-
-		TeamCheck = false,
-		AliveCheck = true,
-		WallCheck = Wall,
-
-		OffsetToMoveDirection = false,
-		OffsetIncrement = 15, -- Min: 1; Max: 30
-
-		Sensitivity = 0, -- Animation length (in seconds) before fully locking onto target
-		Sensitivity2 = 3, -- mousemoverel Sensitivity
-
-		LockMode = 1, -- 1 = CFrame; 2 = mousemoverel
-		LockPart = "Head", -- Body part to lock on
-
-		TriggerKey = Enum.UserInputType.MouseButton2,
-		Toggle = false
-	},
-
-	FOVSettings = {
-		Enabled = fov,
-		Visible = fov,
-
-		Radius = 90, -- Field Of View
-		NumSides = 60,
-
-		Thickness = 1,
-		Transparency = 1,
-		Filled = false,
-
-		RainbowColor = false,
-		RainbowOutlineColor = false,
-		Color = Color3.fromRGB(255, 255, 255),
-		OutlineColor = Color3.fromRGB(0, 0, 0),
-		LockedColor = Color3.fromRGB(255, 150, 150)
-	}
-}
 
 local FinishedLoading = Notif:Notify("Loaded Script :)", 4, "success")
+
+
+local Slider1 = Tab4:NewSlider("WalkSpeed Slider", "", true, "/", {min = 20, max = 100, default = 20}, function(value)
+  local Human = Char and Char:FindFirstChildWhichIsA("Humanoid")
+  while task.wait() do
+  Human.WalkSpeed = value
+  end
+end)
+
+local Slider2 = Tab4:NewSlider("Jump Power", "", true,"/",{min = 20, max = 100, default = 20}, function(jp)
+while task.wait() do
+  Human.JumpPower = jp
+end
+end)
+library:UnlockFps(200) -- thanks for finally updating this nexus :p
 
 -- // FUNCTION DOCS: 
 --[[
@@ -412,7 +386,7 @@ local FinishedLoading = Notif:Notify("Loaded Script :)", 4, "success")
     -- rejoins the same server as you was in
     -- / library:Copy("stuff")
     -- copies the inputed string
-    -- / library:UnlockFps(500) -- only works with synapse
+    -- / library:UnlockFps(500) -- works on exploits with this
     -- sets the max fps to something you choose
     
     -- / library:PromptDiscord("invite")
