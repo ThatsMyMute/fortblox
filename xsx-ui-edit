@@ -1,10 +1,13 @@
 --[[
   UI lib made by bungie#0001
-  Edits made by ThatsMyMute
-  - Please do not use this without permission, I am working really hard on this UI to make it perfect and do not have a big 
-    problem with other people using it, please just make sure you message me and ask me before using.
+  Edits made by ThatsMyMute some for macsploit (I dick ride them currently) I want script-ware back 
+  words from bungie#0001
+    Please do not use this without permission, I am working really hard on this UI to make it perfect and do not have a big  
+   problem with other people using it, please just make sure you message me and ask me before using.
 ]]
-
+getgenv.settings = {
+    backgroundcolor = Color3.fromRGB(255, 255, 255),
+}
 -- / Locals
 local Workspace = game:GetService("Workspace")
 local Player = game:GetService("Players").LocalPlayer
@@ -80,7 +83,7 @@ end
 
 local library = {
     version = "2.0.2",
-    title = title or "xsx " .. tostring(math.random(1,366)),
+    title = title or "xsx edit " .. tostring(math.random(1,366)),
     fps = 0,
     rank = "private"
 }
@@ -122,11 +125,31 @@ end
 function library:Rejoin()
     TeleportService:TeleportToPlaceInstance(library:GetPlaceId(), library:GetJobId(), library:GetUserId())
 end
-
+function library:NewServer() -- same as rejoin just different server
+    TeleportService:TeleportToPlaceInstance(library:GetPlaceId(), library:GetUserId())
+end
 function library:Copy(input) -- works if exploit has setclipboard ThatsMyMute was here
       setclipboard(input)
 end
-
+function library:Discord(input)    -- opens a link to discord invite :) you must only put invite code not discord.gg
+    local res = syn.request or request({
+        Url = 'http://127.0.0.1:6463/rpc?v=1',
+        Method = 'POST',
+        Headers = {
+            ['Content-Type'] = 'application/json',
+            Origin = 'https://discord.com'
+        },
+        Body = http:JSONEncode({
+            cmd = 'INVITE_BROWSER',
+            nonce = http:GenerateGUID(false),
+            args = {code = input}
+        })
+    })
+    if res.Success then
+        library:notification(library:GetUsername ' | joined discord', 3);
+    end
+    
+end
 function library:GetDay(type)
     if type == "word" then -- day in a full word
         return os.date("%A")
@@ -754,7 +777,7 @@ function library:Introduction()
     xsxLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
     xsxLogo.Size = UDim2.new(0, 448, 0, 150)
     xsxLogo.Visible = true
-    xsxLogo.Image = "http://www.roblox.com/asset/?id=9365068051"
+    xsxLogo.Image = "http://www.roblox.com/asset/?id=3926305904"
     xsxLogo.ImageColor3 = Color3.fromRGB(159, 115, 255)
     xsxLogo.ImageTransparency = 1
     
@@ -766,7 +789,7 @@ function library:Introduction()
     hashLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
     hashLogo.Size = UDim2.new(0, 150, 0, 150)
     hashLogo.Visible = true
-    hashLogo.Image = "http://www.roblox.com/asset/?id=9365069861"
+    hashLogo.Image = "http://www.roblox.com/asset/?id=3926305904"
     hashLogo.ImageColor3 = Color3.fromRGB(159, 115, 255)
     hashLogo.ImageTransparency = 1
     
@@ -1115,7 +1138,7 @@ function library:Init(key)
 
             label.Name = "label"
             label.Parent = page
-            label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            label.BackgroundColor3 = getgenv().settings.backgroundcolor
             label.BackgroundTransparency = 1.000
             label.Position = UDim2.new(0.00499999989, 0, 0, 0)
             label.Size = UDim2.new(0, 396, 0, 24)
@@ -1474,7 +1497,7 @@ function library:Init(key)
 
             sectionFrame.Name = "sectionFrame"
             sectionFrame.Parent = page
-            sectionFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            sectionFrame.BackgroundColor3 = getgenv().settings.backgroundcolor
             sectionFrame.BackgroundTransparency = 1.000
             sectionFrame.ClipsDescendants = true
             sectionFrame.Size = UDim2.new(0, 396, 0, 18)
