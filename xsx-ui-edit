@@ -5,7 +5,7 @@
     Please do not use this without permission, I am working really hard on this UI to make it perfect and do not have a big  
    problem with other people using it, please just make sure you message me and ask me before using.
 ]]
-getgenv().settings = {
+getgenv.settings = {
     backgroundcolor = Color3.fromRGB(255, 255, 255),
 }
 -- / Locals
@@ -777,7 +777,7 @@ function library:Introduction()
     xsxLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
     xsxLogo.Size = UDim2.new(0, 448, 0, 150)
     xsxLogo.Visible = true
-    xsxLogo.Image = "http://www.roblox.com/asset/?id=3926305904"
+    xsxLogo.Image = "rbxassetid://15932257263"
     xsxLogo.ImageColor3 = Color3.fromRGB(159, 115, 255)
     xsxLogo.ImageTransparency = 1
     
@@ -789,7 +789,7 @@ function library:Introduction()
     hashLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
     hashLogo.Size = UDim2.new(0, 150, 0, 150)
     hashLogo.Visible = true
-    hashLogo.Image = "http://www.roblox.com/asset/?id=3926305904"
+    hashLogo.Image = "rbxassetid://15932257263"
     hashLogo.ImageColor3 = Color3.fromRGB(159, 115, 255)
     hashLogo.ImageTransparency = 1
     
