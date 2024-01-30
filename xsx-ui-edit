@@ -770,30 +770,30 @@ function library:Introduction()
     xsxLogo.Name = "xsxLogo"
     xsxLogo.Parent = background
     xsxLogo.AnchorPoint = Vector2.new(0.5, 0.5)
-    xsxLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    xsxLogo.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     xsxLogo.BackgroundTransparency = 1.000
     xsxLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
-    xsxLogo.Size = UDim2.new(0, 200, 0, 200)
+    xsxLogo.Size = UDim2.new(0, 448, 0, 150)
     xsxLogo.Visible = true
-    xsxLogo.Image = "rbxassetid://15932126943"
+    xsxLogo.Image = "rbxassetid://15932257263"
     xsxLogo.ImageColor3 = Color3.fromRGB(159, 115, 255)
     xsxLogo.ImageTransparency = 1
     
     hashLogo.Name = "hashLogo"
     hashLogo.Parent = background
     hashLogo.AnchorPoint = Vector2.new(0.5, 0.5)
-    hashLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    hashLogo.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     hashLogo.BackgroundTransparency = 1.000
     hashLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
     hashLogo.Size = UDim2.new(0, 150, 0, 150)
     hashLogo.Visible = true
-    hashLogo.Image = "rbxassetid://15932126943"
+    hashLogo.Image = "rbxassetid://15932257263"
     hashLogo.ImageColor3 = Color3.fromRGB(159, 115, 255)
     hashLogo.ImageTransparency = 1
     
     xsx.Name = "xsx"
     xsx.Parent = background
-    xsx.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    xsx.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     xsx.BackgroundTransparency = 1.000
     xsx.Size = UDim2.new(0, 80, 0, 21)
     xsx.Font = Enum.Font.Code
