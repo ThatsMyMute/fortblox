@@ -1136,7 +1136,7 @@ function library:Init(key)
 
             label.Name = "label"
             label.Parent = page
-            label.BackgroundColor3 = Color3.fromRGB(0, 0, 0),
+            label.BackgroundColor3 = Color3.fromRGB(0,0,0)
             label.BackgroundTransparency = 1.000
             label.Position = UDim2.new(0.00499999989, 0, 0, 0)
             label.Size = UDim2.new(0, 396, 0, 24)
@@ -1495,7 +1495,7 @@ function library:Init(key)
 
             sectionFrame.Name = "sectionFrame"
             sectionFrame.Parent = page
-            sectionFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0),
+            sectionFrame.BackgroundColor3 = Color3.fromRGB(0,0,0)
             sectionFrame.BackgroundTransparency = 1.000
             sectionFrame.ClipsDescendants = true
             sectionFrame.Size = UDim2.new(0, 396, 0, 18)
