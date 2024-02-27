@@ -1,6 +1,7 @@
 
 
 --[[
+t
     Made by thatsmymute feel free to use just give credits
     esp and aimbot exunys
   Toggle Key is: Right Option (MacOs) idk what windows is
